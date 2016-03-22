@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script src = './mvc.js'></script>
+<script>
+
+	var User = APP.factory( 
+
+		'model/user', 
+
+		{
+
+			name : {
+
+				get : function() {
+
+					return name;
+
+				},
+
+				set : function( a ) {
+
+					name = a;
+
+				}
+
+			},
+
+			age : {
+
+				get : function() {
+
+					return age;
+
+				},
+
+				set : function( a ) {
+
+					age = a;
+
+				}
+
+			}
+
+		}, 
+
+		{
+			sayHello : function() {
+
+				console.log( this.name );
+
+			}
+
+		}
+
+	);
+
+	var user1 = User.new();
+	
+	// User.prototype.define({
+
+	// 	name : {
+
+	// 		get : function( a ) {
+
+	// 			a.name;
+
+	// 		}, 
+
+	// 		set : function( a, b ) {
+
+	// 			a.name = b;
+
+	// 		}
+
+	// 	},
+
+	// 	age : {
+
+	// 		get : function( a ) {
+
+	// 			a.age;
+
+	// 		}, 
+
+	// 		set : function( a, b ) {
+
+	// 			a.age = b;
+				
+	// 		}
+
+	// 	}
+
+	// });
+
+	// User.action({
+
+	// 	toJSON : function( a ) {
+
+	// 		var JSON = '{';
+
+	// 		for( var key in a  ) {
+
+	// 			JSON += '"' + key + '":' + '"' + a[ key ] + '"';
+
+	// 		}
+
+	// 		JSON += '}';
+
+	// 		return JSON;
+
+	// 	}
+
+	// })
+	
+	// var user1 = new User({
+
+	// 	name : 'Jonny',
+	// 	age  : 40 
+
+	// });
+
+	// user1.toJSON();
+
+</script>
+</body>
+</html>
