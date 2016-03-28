@@ -4,14 +4,14 @@
 	<title></title>
 </head>
 <body>
-<script src = './mvc.js'></script>
+<script src = './dprk.js'></script>
 <script>
 
 	var User = DPRK.factory( 
 
-		'model/user', 
+		'model/user', // Namespace
 
-		function( obj ) { 
+		function( obj ) {  // Class Variables, getters, setters
 
 			return {
 
@@ -52,7 +52,7 @@
 			}
 		}, 
 
-		{
+		{	// Class methods
 
 			sayHello : function() {
 
