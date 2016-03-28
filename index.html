@@ -7,47 +7,53 @@
 <script src = './mvc.js'></script>
 <script>
 
-	var User = APP.factory( 
+	var User = DPRK.factory( 
 
 		'model/user', 
 
-		{
+		function( obj ) { 
 
-			name : {
+			return {
 
-				get : function() {
+				name : {
 
-					return name;
+					get : function() {					
 
-				},
+						return 'my name is ' +  obj.name;
 
-				set : function( a ) {
+					},
 
-					name = a;
+					set : function( a ) {
 
-				}
+						obj.name = a;
 
-			},
-
-			age : {
-
-				get : function() {
-
-					return age;
+					}
 
 				},
 
-				set : function( a ) {
+				age : {
 
-					age = a;
+					get : function() {
 
-				}
+						return obj.age;
+
+					},
+
+					set : function( a ) {
+
+						obj.age = a;
+
+					}
+
+				},
+
+				gender : {}
 
 			}
-
 		}, 
 
 		{
+
 			sayHello : function() {
 
 				console.log( this.name );
@@ -58,72 +64,104 @@
 
 	);
 
-	var user1 = User.new();
+
+	var Servicer = DPRK.factory( 
+
+		'model/user/servicer',
+
+		function( obj ) { 
+
+			return {
+
+				id : {
+
+					get : function() {					
+
+						return 'my id is ' +  obj.id;
+
+					},
+
+					set : function( a ) {
+
+						obj.id = a;
+
+					}
+
+				}
+
+			}
+		}
+
+	);
+
+	var Admin = DPRK.factory( 
+
+		'model/user/admin',
+		
+		function( obj ) { 
+
+			return {
+
+				role : {
+
+					get : function() {					
+
+						return 'my role is ' +  obj.role;
+
+					},
+
+					set : function( a ) {
+
+						obj.role = a;
+
+					}
+
+				}
+
+			}
+		}
+
+	);
+
+	var user1     = User.new({ name : 'Min' , age : 26 });
 	
-	// User.prototype.define({
+	var servicer1 = Servicer.new();
 
-	// 	name : {
 
-	// 		get : function( a ) {
+	var admin1    = Admin.new();
 
-	// 			a.name;
 
-	// 		}, 
+	var UserView = DPRK.factory( 
 
-	// 		set : function( a, b ) {
+		'view/user', 
 
-	// 			a.name = b;
+		function( self ) { 
 
-	// 		}
+			return {
 
-	// 	},
+				model : {
 
-	// 	age : {
+					get : function() {					
 
-	// 		get : function( a ) {
+						return self.model;
 
-	// 			a.age;
+					},
 
-	// 		}, 
+					set : function( a ) {
 
-	// 		set : function( a, b ) {
+						self.model = a;
 
-	// 			a.age = b;
-				
-	// 		}
+					}
 
-	// 	}
+				}
 
-	// });
+			}
 
-	// User.action({
+		}
 
-	// 	toJSON : function( a ) {
+	);
 
-	// 		var JSON = '{';
-
-	// 		for( var key in a  ) {
-
-	// 			JSON += '"' + key + '":' + '"' + a[ key ] + '"';
-
-	// 		}
-
-	// 		JSON += '}';
-
-	// 		return JSON;
-
-	// 	}
-
-	// })
-	
-	// var user1 = new User({
-
-	// 	name : 'Jonny',
-	// 	age  : 40 
-
-	// });
-
-	// user1.toJSON();
+	var userview1 = UserView.new({ model: user1 });
 
 </script>
 </body>
