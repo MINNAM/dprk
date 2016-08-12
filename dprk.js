@@ -1,10 +1,3 @@
-/**
- * 
- * DPRK, Democratic People's Republic of Korea. 
- *
- * Yes, gain a full control of your application like how Kims would, but in MVC fashion. 
- *
- */
 var DPRK = {
 
 	model : {
